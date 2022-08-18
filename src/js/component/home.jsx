@@ -7,9 +7,11 @@ import rigoImage from "../../img/rigo-baby.jpg";
 const Home = () => {
 	return (
 		<h1 className="text-secondary text-center">Tareas</h1>
-		<div className="text-center">
-			
+		<div className="text-center"></div>
 	);
 };
+
+
+
 
 export default Home;
