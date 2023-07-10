@@ -8,34 +8,34 @@ export function Lista () {
         );
     };
     const getTask = ()=>{
-        fetch('http://assets.breatheco.de/apis/fake/todos/user/juacomiranda')
+        fetch('https://assets.breatheco.de/apis/fake/todos/user/juacomiranda')
         .then(data=>data.json())
         .then(response=>setList(response))
     }
 
-    const putTask = (arrTareas)=>{
+    const putTask = ()=>{
         let header = new Headers();
         header.append('Content-Type', 'aplication/json')
 
-        let cuerpo = JSON.stringify(arrTareas)
+        let cuerpo = JSON.stringify([
+            {"label": "probando desde el front", "done": false}
+        ])
 
-        let requestOptions = {
+        let requestOptions ={
             method: 'PUT',
             headers: header,
             body: cuerpo,
             redirect: 'follow'
         }
 
-        fetch('http://assets.breatheco.de/apis/fake/todos/user/juacomiranda', requestOptions)
-        .then(data=>data.JSON())
+        fetch('https://assets.breatheco.de/apis/fake/todos/user/juacomiranda', requestOptions)
+        .then(data=>data.json())
         .then(response=>console.log(response))
 }
 
     useEffect(()=>{
         getTask();
     },[])
-    
-   
 
     return (
         <>
@@ -54,6 +54,7 @@ export function Lista () {
                             </button>
                         </li>;
             })}
+            <button onClick={putTask}>Accionar Put  </button>
         </>
     )
     /*return (
