@@ -48,7 +48,7 @@ export function Lista () {
             </form>
 
             {list.map((elem, index)=>{
-                return <li key={index}>{elem.label}
+                return <li key={index}>{elem}
                             <button onClick={() => DeleteItems(index)}>
                                 <i className="fas fa-trash-alt" />
                             </button>
