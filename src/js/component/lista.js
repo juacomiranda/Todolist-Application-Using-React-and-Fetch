@@ -8,7 +8,7 @@ export function Lista () {
         );
     };
     const getTask = ()=>{
-        fetch('https://assets.breatheco.de/apis/fake/todos/user/juacomiranda')
+        fetch('https://playground.4geeks.com/apis/fake/todos/user/juacomiranda')
         .then(data=>data.json())
         .then(response=>setList(response))
     }
