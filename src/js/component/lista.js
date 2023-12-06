@@ -1,7 +1,22 @@
 import React, { useEffect, useState, useContext } from "react";
 
 export function Lista () {
-    const [list, setList] = useState([]);
+    const [list, setList] = useState ([])
+    const getTask = () => {
+        fetch ('https://playground.4geeks.com/apis/fake/todos/user/juacomiranda')
+        .then (data=>data.json())                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+        .then (response=>console.log(response))    
+    }
+    useEffect(()=>{
+        getTask();
+    },[])
+
+    return (
+        <div>Hola</div>
+    )
+    
+
+    /*const [list, setList] = useState([]);
     const DeleteItems = (indexItem) => {
         setList((prevState) =>
           prevState.filter((elemento, indice) => indice !== indexItem)
@@ -28,9 +43,10 @@ export function Lista () {
             redirect: 'follow'
         }
 
-        fetch('https://assets.breatheco.de/apis/fake/todos/user/juacomiranda', requestOptions)
+        fetch('https://playground.4geeks.com/apis/fake/todos/user/juacomiranda', requestOptions)
         .then(data=>data.json())
         .then(response=>console.log(response))
+        
 }
 
     useEffect(()=>{
@@ -56,7 +72,7 @@ export function Lista () {
             })}
             <button onClick={putTask}>Accionar Put  </button>
         </>
-    )
+    )*/
     /*return (
         <>
             <form type="submit" onSubmit={(event) => {
