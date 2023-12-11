@@ -5,14 +5,30 @@ export function Lista () {
     const getTask = () => {
         fetch ('https://playground.4geeks.com/apis/fake/todos/user/juacomiranda')
         .then (data=>data.json())                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-        .then (response=>console.log(response))    
+        .then (response=>console.log(response)) 
     }
     useEffect(()=>{
         getTask();
     },[])
 
     return (
-        <div>Hola</div>
+        <>
+        <form type="submit" onSubmit={(event) => {
+            event.preventDefault();
+           setList([...list, event.target[0].value]);
+        }}
+        >
+        <input className="form-control" placeholder="Ingrese una tarea y precione Enter"/>
+        </form>
+       
+        {list.map((valor, index) => {
+            return <li key={index}>{valor}
+            <button onClick={() => DeleteItems(index)}>
+            <i className="fas fa-trash-alt" />
+          </button>
+          </li>;
+        })}
+        </>
     )
     
 
