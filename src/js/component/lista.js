@@ -1,3 +1,4 @@
+import { element } from "prop-types";
 import React, { useEffect, useState, useContext } from "react";
 
 export function Lista () {
@@ -5,14 +6,20 @@ export function Lista () {
     const getTask = () => {
         fetch ('https://playground.4geeks.com/apis/fake/todos/user/juacomiranda')
         .then (data=>data.json())                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-        .then (response=>console.log(response)) 
+        .then (response=>setList(response)) 
     }
     useEffect(()=>{
         getTask();
     },[])
 
     return (
-        <>
+        <div className="text-center">
+            <h1 className="text-center mt-5">Tareas</h1>
+            {list.map((elm, index)=>{
+                return <li key={index}>{elm.label}</li>
+            })}
+        </div>
+        /*<>
         <form type="submit" onSubmit={(event) => {
             event.preventDefault();
            setList([...list, event.target[0].value]);
@@ -28,7 +35,7 @@ export function Lista () {
           </button>
           </li>;
         })}
-        </>
+        </>*/
     )
     
 
