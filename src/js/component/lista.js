@@ -8,8 +8,7 @@ export function Lista() {
     useEffect(() => {
         fetch('https://playground.4geeks.com/todo/users/juacomiranda')
             .then(data => data.json())
-            .then(response => setList(response.todos))
-            .catch(error => console.error('Error:', error));
+            .then(response => setList(response.todos));
     }, []);
 
     const handleChange = (e) => {
@@ -36,7 +35,6 @@ export function Lista() {
                 setList([...list, response]);
                 setTask(''); 
             })
-            .catch(error => console.error('Error:', error));
         }
     };
     
